@@ -3,7 +3,8 @@ function configureListeners() {
 
 
      for (var i = 0; i < images.length; i++) {        
-        document.querySelector(images[], id).addEventListener('mouseover', addOpacity, false)// iterate over images and add mouseover event listeners      
+        document.getElementById(images[i].id).addEventListener('mouseover', addOpacity, false) 
+        document.getElementById(images[i].id).addEventListener('mouseover', removeOpacity, false)// iterate over images and add mouseover event listeners      
     } 
 }
 
@@ -30,7 +31,9 @@ function getProductInfo(paintColor) {
     
     switch (paintColor) {
         case 'pn1':           
-            // set variables for price and color name and invoke a function to update the price     
+            price = '$9.99' 
+            colorName = 'Gloop Green'
+            updatePrice(colorName, price)// set variables for price and color name and invoke a function to update the price     
             break;           
         case 'pn2':
             // set variables for price and color name and invoke a function to update the price    
@@ -61,10 +64,12 @@ function getProductInfo(paintColor) {
 
     function updatePrice(colorName, price)
     {       
-        let colorPrice = // select element with corresponding id
+        let colorPrice = document.getElementById('color-price');
+        colorPrice.textContent = price; // select element with corresponding id
         // display price
         
-        let color = // select element with corresponding id
+        let color = document.getElementById('color-name');
+        color.textContent = colorName; // select element with corresponding id
         //display color name
     }
     
